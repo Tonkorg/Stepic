@@ -2,11 +2,14 @@ package org.example.GrishaTask.Part1.Part3.Task1;
 
 public class FirstTask {
 
+
     public static void main(String[] args) {
-        int[][] array1 = new int[5][5];
-        int[][] array2 = new int[5][5];
-        int[][] array3 = new int[5][5];
-        int[][] array4 = new int[5][5];
+        int size = 7;
+
+        int[][] array1 = new int[size][size];
+        int[][] array2 = new int[size][size];
+        int[][] array3 = new int[size][size];
+        int[][] array4 = new int[size][size];
 
 
 
@@ -40,14 +43,14 @@ public class FirstTask {
 
     public  static int[][] firstMatrix(int[][] arr)
     {
-        for (int i = 0; i< 5;i++)
+        for (int i = 0; i< arr.length;i++)
         {
             arr[i][i] =1;
         }
 
-        for(int i =0 ; i<5; i++)
+        for(int i =0 ; i< arr.length-1; i++)
         {
-            arr[i][4-i] = 1;
+            arr[i][arr.length-1-i] = 1;
         }
         return arr;
     }
@@ -58,7 +61,7 @@ public class FirstTask {
         {
             for(int j = 0; j<arr[i].length;j++)
             {
-                if(i == 2 || j==2)
+                if(i == (arr.length-1)/2 || j == (arr.length-1)/2)
                 {
                     arr[i][j] =1;
                 }
@@ -73,7 +76,7 @@ public class FirstTask {
         {
             for(int j = 0; j<arr[i].length;j++)
             {
-                if(i == 0 || j==0 || i == 4 || j ==4)
+                if(i == 0 || j==0 || i == arr.length-1 || j == arr.length-1)
                 {
                     arr[i][j] =1;
                 }
@@ -88,7 +91,7 @@ public class FirstTask {
         {
             for(int j = 0; j<arr[i].length;j++)
             {
-                if (((i==0 || i == 4)&&j==2) || ((i==1|| i==3)&&(j==1 || j==3)) || (i==2&&(j==0 || j==4)))
+                if (((i==0 || i == arr.length-1)&&j== (arr.length-1)/2) || ((i==1|| i==3)&&(j==1 || j==3)) || (i==2&&(j==0 || j==4)))
                 {
                     arr[i][j] =1;
                 }
