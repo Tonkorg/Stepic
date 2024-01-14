@@ -10,7 +10,7 @@ public class Task3 {
 
         MyOwnCompare myOwnCompare = q -> q % 13 == 0;
 
-        boolean result = myOwnCompare.compareByMyOwn(26);
+        boolean result = myOwnCompare.compareByMyOwn(5465466);
         System.out.println(result);
     }
 }
