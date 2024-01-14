@@ -8,7 +8,7 @@ public class Task4 {
         {
             StringBuilder s = new StringBuilder();
             int counter=0;
-            while(s.length()+x.length()<q|| counter<n)
+            while((s.length()+x.length()<=q) && (counter<n))
             {
                 s.append(x +", ");
                 counter++;
@@ -16,7 +16,7 @@ public class Task4 {
             return s.toString();
         };
 
-        String str = myCopy.cupyString("Hello",3,12);
+        String str = myCopy.cupyString("He",44,12);
         System.out.println(str);
 
     }
