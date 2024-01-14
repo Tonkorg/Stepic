@@ -22,32 +22,61 @@ public class Task1 {
 
         int top = 0, bottom = m - 1, left = 0, right = n - 1;
 
-        while (top <= bottom && left <= right) {
-            // Вправо
-            for (int i = left; i <= right; i++) {
-                matrix[top][i] = (left % 2 == 0) ? String.valueOf(value++) : " ";
-            }
-            top++;
+        if (n % 2 != 0) {
+            while (top <= bottom && left <= right) {
+                // Вправо
+                for (int i = left; i <= right; i++) {
+                    matrix[top][i] = (left % 2 != 0) ? String.valueOf(value++) : " ";
+                }
+                top++;
 
-            // Вниз
-            for (int i = top; i <= bottom; i++) {
-                matrix[i][right] = (top % 2 == 1) ? String.valueOf(value++) : " ";
-            }
-            right--;
+                // Вниз
+                for (int i = top; i <= bottom; i++) {
+                    matrix[i][right] = (top % 2 == 0) ? String.valueOf(value++) : " ";
+                }
+                right--;
 
-            // Влево
-            for (int i = right; i >= left; i--) {
-                matrix[bottom][i] = (right % 2 == 0) ? String.valueOf(value++) : " ";
-            }
-            bottom--;
+                // Влево
+                for (int i = right; i >= left; i--) {
+                    matrix[bottom][i] = (right % 2 != 0) ? String.valueOf(value++) : " ";
+                }
+                bottom--;
 
-            // Вверх
-            for (int i = bottom; i >= top; i--) {
-                matrix[i][left] = (bottom % 2 == 1) ? String.valueOf(value++) : " ";
+                // Вверх
+                for (int i = bottom; i >= top; i--) {
+                    matrix[i][left] = (bottom % 2 == 0) ? String.valueOf(value++) : " ";
+                }
+                left++;
             }
-            left++;
+
+            return matrix;
+        } else {
+            while (top <= bottom && left <= right) {
+                // Вправо
+                for (int i = left; i <= right; i++) {
+                    matrix[top][i] = (left % 2 == 0) ? String.valueOf(value++) : " ";
+                }
+                top++;
+
+                // Вниз
+                for (int i = top; i <= bottom; i++) {
+                    matrix[i][right] = (top % 2 == 1) ? String.valueOf(value++) : " ";
+                }
+                right--;
+
+                // Влево
+                for (int i = right; i >= left; i--) {
+                    matrix[bottom][i] = (right % 2 == 0) ? String.valueOf(value++) : " ";
+                }
+                bottom--;
+
+                // Вверх
+                for (int i = bottom; i >= top; i--) {
+                    matrix[i][left] = (bottom % 2 == 1) ? String.valueOf(value++) : " ";
+                }
+                left++;
+
+            }return matrix;
         }
-
-        return matrix;
     }
 }
