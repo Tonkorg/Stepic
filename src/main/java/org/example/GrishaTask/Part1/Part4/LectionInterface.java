@@ -34,7 +34,6 @@ public class LectionInterface {
         System.out.println(isNotEmpty.test(""));       // Вывод: false
 
 
-
         //Интерфейс Function является частью Java API и предоставляет
         // функциональный метод для преобразования входного аргумента в
         // выходной результат. Вот его общая сигнатура:
