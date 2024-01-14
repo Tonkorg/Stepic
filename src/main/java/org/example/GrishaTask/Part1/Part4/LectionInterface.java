@@ -87,8 +87,6 @@ public class LectionInterface {
 
         // Вывод отсортированного массива
         System.out.println(Arrays.toString(words));
-
-
     }
     }
-}
+
