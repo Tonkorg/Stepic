@@ -1,4 +1,4 @@
-package org.example.GrishaTask.Part1.Part3;
+package org.example.GrishaTask.Part1.Part3.Task1;
 
 public class FirstTask {
 
