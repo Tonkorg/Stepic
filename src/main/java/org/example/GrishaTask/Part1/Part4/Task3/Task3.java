@@ -12,5 +12,9 @@ public class Task3 {
 
         boolean result = myOwnCompare.compareByMyOwn(5465466);
         System.out.println(result);
+
+        MyOwnCompare myOwnCompare1 = q -> q%121 ==0;
+        boolean result1 = myOwnCompare1.compareByMyOwn(121);
+        System.out.println(result1);
     }
 }
