@@ -16,24 +16,26 @@ public class UpdateCity {
         try (Connection connection = ConnectionToMyDb.getConnection();
              PreparedStatement statement = connection.prepareStatement(String.format(UPDATECITY, field, searchField))) {
 
-            if (!field.equals("id") && !field.equals("count") && !field.equals("square") && !field.equals("dateStart")) {
-                statement.setString(1, newValue);
-            } else if (field.equals("dateStart")) {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                try {
-                    Date parsedDate = new java.sql.Date(dateFormat.parse(newValue).getTime());
-                    statement.setDate(1, parsedDate);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                    // Handle parsing exceptions
-                }
-            }
+            Object parsedValue = parseValue(field, newValue);
+            Object parsedSearchValue = parseValue(field, searchValue);
 
-            statement.setString(2, searchValue);
+            statement.setObject(1, parsedValue);
+            statement.setObject(2, parsedSearchValue);
 
             statement.execute();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println("Something went wrong while updating the city table: " + e.getMessage());
+        }
+    }
+
+    private Object parseValue(String field, String value) throws ParseException {
+        if (field.equals("dateStart")) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            return new java.sql.Date(dateFormat.parse(value).getTime());
+        } else if (field.equals("count") || field.equals("square") || field.equals("id")) {
+            return Integer.parseInt(value);
+        } else {
+            return value;
         }
     }
 }
