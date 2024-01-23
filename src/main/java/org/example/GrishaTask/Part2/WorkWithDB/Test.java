@@ -1,5 +1,7 @@
 package org.example.GrishaTask.Part2.WorkWithDB;
 
+import org.example.GrishaTask.Part2.WorkWithDBFromLaptop.ConnectionToMyDb;
+
 import java.sql.*;
 
 public class Test {
@@ -16,7 +18,7 @@ public class Test {
 
 
         {
-            try( Connection connection = DriverManager.getConnection(url,user,password); Statement statement = connection.createStatement();) {
+            try(Connection connection = DriverManager.getConnection(url,user,password); Statement statement = connection.createStatement();) {
 
 //                statement.execute("insert into users(name,age,email) values('Tom',21,'Aty@gmail.com')"); // метод для добавления
 //                statement.executeUpdate("Update users set name= 'Cloe' where id =2;"); // метод для обновления
